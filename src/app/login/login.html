@@ -1,0 +1,18 @@
+<div flex class="layout-column flex" ng-cloak="" >
+  <section class="jumbotron">
+    <h1>Hello PayMew!</h1>
+
+    <div>
+      <md-input-container>
+        <label>Username: </label>
+        <input ng-model="login.username">
+      </md-input-container>
+      <md-input-container>
+        <label>Password: </label>
+        <input ng-model="login.password" type="password">
+      </md-input-container>
+    </div>
+
+    <md-button class="md-raised animated infinite" ng-click="login.submit()">登录</md-button>
+  </section>
+</div>

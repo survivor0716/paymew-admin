@@ -1,0 +1,61 @@
+<acme-sidebar></acme-sidebar>
+
+<div layout="column" flex>
+  <acme-toolbar></acme-toolbar>
+  <md-content layout="column" flex>
+    <div class="doc-content md-whiteframe-z1">
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2 class="md-flex">添加用户</h2>
+        </div>
+      </md-toolbar>
+
+      <md-content layout-padding="">
+        <div>
+          <form name="addUserForm">
+            <md-select placeholder="选择所属门店" ng-model="store.store_id" required="" style="min-width: 200px;">
+              <md-input-container class="md-block" md-no-float="">
+                <input ng-model="searchTerm" type="text" placeholder="输入门店名称" ng-keyup="loadStores($event)">
+              </md-input-container>
+              <md-option ng-value="store.store_id" ng-repeat="store in stores">{{store.storeName}}</md-option>
+            </md-select>
+            <md-input-container class="md-block">
+              <label>手机号</label>
+              <input ng-model="user.phone" type="tel" name="phone" required="" maxlength="11" md-maxlength="11">
+            </md-input-container>
+            <div layout="row" layout-wrap="" flex="">
+              <!--<div flex="" ng-repeat="role in roles">-->
+              <md-checkbox ng-checked="exists(1, selected)" ng-click="toggle(1, selected)">
+                店长
+                <!--<span ng-if="exists(item, selected)">selected</span>-->
+              </md-checkbox>
+              <md-checkbox ng-checked="exists(2, selected)" ng-click="toggle(2, selected)">
+                收银员
+                <!--<span ng-if="exists(item, selected)">selected</span>-->
+              </md-checkbox>
+              <md-checkbox ng-checked="exists(3, selected)" ng-click="toggle(3, selected)">
+                商户管理员
+                <!--<span ng-if="exists(item, selected)">selected</span>-->
+              </md-checkbox>
+              <!--</div>-->
+            </div>
+          </form>
+        </div>
+
+        <md-button class="md-raised animated infinite" ng-disabled="!addUserForm.$valid" ng-click="submit()">提交</md-button>
+      </md-content>
+    </div>
+
+    <div layout="row" flex class="layout-row">
+      <div id="license-footer" style="align-self: flex-end;
+    padding: 16px 32px;
+    width: 100%;
+    text-align: left;
+    font-size: small;
+    border-top: 1px solid #ddd;">
+        Powered by PayMew ©2016.
+        Code licensed under the <a href="./license">MIT License</a>.
+      </div>
+    </div>
+  </md-content>
+</div>

@@ -1,0 +1,63 @@
+<acme-sidebar></acme-sidebar>
+
+<div layout="column" flex>
+  <acme-toolbar></acme-toolbar>
+  <md-content layout="column" flex>
+    <div class="doc-content md-whiteframe-z1">
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2 class="md-flex">添加代理商</h2>
+        </div>
+      </md-toolbar>
+
+      <md-content layout-padding="">
+        <div>
+          <form name="addAgentsForm">
+            <md-input-container class="md-block">
+              <label>代理商名称</label>
+              <input ng-model="agents.name" type="text" name="name" required="">
+              <div ng-messages="addAgentsForm.name.$error">
+                <div ng-message="required">代理商名称不能为空</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>用户名</label>
+              <input ng-model="agents.username" type="text" name="username" required="">
+              <div ng-messages="addAgentsForm.username.$error">
+                <div ng-message="required">用户名不能为空</div>
+              </div>
+            </md-input-container>
+          </form>
+        </div>
+
+        <md-button class="md-raised animated infinite" ng-disabled="!addAgentsForm.$valid" ng-click="submit()">提交</md-button>
+        <!--<md-button class="md-raised animated infinite" ng-click="showAlert($event, alertType.success)">Alert</md-button>-->
+      </md-content>
+    </div>
+    <div layout="row" flex class="layout-row">
+
+      <div id="license-footer" style="align-self: flex-end;
+    padding: 16px 32px;
+    width: 100%;
+    text-align: left;
+    font-size: small;
+    border-top: 1px solid #ddd;">
+        Powered by PayMew ©2016.
+        Code licensed under the <a href="./license">MIT License</a>.
+      </div>
+    </div>
+  </md-content>
+</div>
+<!--<script type="text/ng-template" id="dialog.tmpl.html">-->
+  <!--<md-dialog ng-cloak="">-->
+    <!--<form>-->
+      <!--<md-toolbar>-->
+        <!--<div class="md-toolbar-tools">-->
+          <!--<h2></h2>-->
+          <!--<span></span>-->
+          <!--<md-button class="md-icon-button"></md-button>-->
+        <!--</div>-->
+      <!--</md-toolbar>-->
+    <!--</form>-->
+  <!--</md-dialog>-->
+<!--</script>-->

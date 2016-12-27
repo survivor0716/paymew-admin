@@ -1,0 +1,95 @@
+<acme-sidebar></acme-sidebar>
+
+<div layout="column" flex>
+  <acme-toolbar></acme-toolbar>
+
+  <md-content layout="column">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>
+          <span>商户信息</span>
+        </h2>
+        <span flex=""></span>
+        <a href="#/add-merchant" class="md-button md-raised" aria-label="添加商户">
+          <md-icon aria-label="add">add</md-icon>
+          添加商户
+        </a>
+      </div>
+    </md-toolbar>
+
+    <!--gt-sm时显示表格样式-->
+    <div layout-margin hide show-gt-md class="md-whiteframe-z1">
+      <div layout="row">
+        <div flex="10"><h4>商户号</h4></div>
+        <div flex="10"><h4>商户名称</h4></div>
+        <div flex=""><h4>创建时间</h4></div>
+        <div flex=""><h4>所属代理商</h4></div>
+        <div flex="10"><h4>门店数量</h4></div>
+        <div flex="10"><h4>详细信息</h4></div>
+        <div flex="10"><h4>提现管理</h4></div>
+        <div flex="10"><h4>状态</h4></div>
+      </div>
+      <md-divider ng-if="!$last"></md-divider>
+      <div layout="column" ng-repeat="item in messages">
+        <div layout="row">
+          <div flex-gt-xs="10"><p>{{'75527482'}}</p></div>
+          <div flex-gt-xs="10"><p>{{'KFC'}}</p></div>
+          <div flex-gt-xs=""><p>{{'2016-05-15 16:23:23'}}</p></div>
+          <div flex-gt-xs=""><p>{{'财喵'}}</p></div>
+          <div flex-gt-xs="10"><a class="md-button" href="#/store"><span>2 (查看)</span></a></div>
+          <div flex-gt-xs="10"><p>{{item.who}}</p></div>
+          <div flex-gt-xs="10">
+            <md-button class="md-raised md-secondary">配置</md-button>
+          </div>
+          <div flex="10">
+            <p>审核中</p>
+          </div>
+        </div>
+        <!--<md-divider ng-if="!$last"></md-divider>-->
+        <md-divider></md-divider>
+      </div>
+      <div layout="row" class="pagination">
+        <a class="md-button" href="#/agents"><span>上一页</span></a>
+        <a class="md-button" href="#/agents">下一页</a>
+      </div>
+    </div>
+    <!--lt-md时列表样式-->
+    <div layout-margin hide-gt-md>
+      <div layout-padding class="md-whiteframe-z1" ng-repeat="item in data">
+        <div layout="column">
+          <div layout="row">
+            <div flex><h4>商户号</h4></div>
+            <div flex><p>{{item.mchID}}</p></div>
+          </div>
+          <div layout="row">
+            <div flex><h4 flex>商户名称</h4></div>
+            <div flex><p flex>{{item.mchName}}</p></div>
+          </div>
+          <div layout="row">
+            <div flex><h4>创建时间</h4></div>
+            <div flex><p>{{item.createTime}}</p></div>
+          </div>
+          <div layout="row">
+            <div flex><h4>所属代理商</h4></div>
+            <div flex><p>{{item.belongTo}}</p></div>
+          </div>
+          <div layout="row">
+            <div flex><h4>门店数量</h4></div>
+            <div flex><p>{{item.numOfStore}}</p></div>
+          </div>
+          <div layout="row">
+            <div flex><h4>详细信息</h4></div>
+            <div flex><p>{{item.detail}}</p></div>
+          </div>
+          <div layout="row">
+            <div flex><h4>提现管理</h4></div>
+            <div flex><p>{{item.withdraw}}</p></div>
+          </div>
+          <div layout="row">
+            <div flex><h4>状态</h4></div>
+            <div flex><p>{{item.state}}</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<acme-sidebar></acme-sidebar>
+
+<div layout="column" flex>
+  <acme-toolbar></acme-toolbar>
+  <md-content layout="column" flex>
+    <div class="doc-content md-whiteframe-z1">
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2 class="md-flex">添加商户</h2>
+        </div>
+      </md-toolbar>
+
+      <md-content layout-padding="">
+        <div>
+          <form name="addMerchantForm">
+            <md-select placeholder="选择所属代理商" ng-model="distributor.distributor_id" required="" style="min-width:
+            200px;">
+              <md-input-container class="md-block">
+                <input ng-model="searchTerm" type="text" placeholder="输入代理商名称进行查找" ng-keyup="loadDistributors($event)">
+              </md-input-container>
+              <md-option ng-value="distributor.distributor_id" ng-repeat="distributor in distributors">{{distributor.name}}</md-option>
+            </md-select>
+            <md-input-container class="md-block">
+              <label>商户名称</label>
+              <input ng-model="merchant.name" type="text" name="name" required="">
+              <div ng-messages="addMerchantForm.name.$error">
+                <div ng-message="required">商户名称不能为空</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>省份</label>
+              <input ng-model="merchant.province" type="text" name="province" required="">
+              <div ng-messages="addMerchantForm.province.$error">
+                <div ng-message="required">商户所在省份不能为空</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>城市</label>
+              <input ng-model="merchant.city" type="text" name="city" required="">
+              <div ng-messages="addMerchantForm.city.$error">
+                <div ng-message="required">商户所在城市不能为空</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>区（县）</label>
+              <input ng-model="merchant.district" type="text" name="district" required="">
+              <div ng-messages="addMerchantForm.district.$error">
+                <div ng-message="required">商户所在区（县）不能为空</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>地址详情</label>
+              <input ng-model="merchant.detail" type="text" name="detail" required="">
+              <div ng-messages="addMerchantForm.detail.$error">
+                <div ng-message="required">商户地址详情不能为空</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>商户联系人</label>
+              <input ng-model="merchant.contact_name" type="text" name="contact_name" required="">
+              <div ng-messages="addMerchantForm.contact_name.$error">
+                <div ng-message="required">商户联系人不能为空</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>商户联系电话</label>
+              <input ng-model="merchant.contact_phone" type="tel" name="contact_phone" required="" maxlength="11" md-maxlength="11">
+              <!--<div ng-messages="addMerchantForm.contact_phone.$error">-->
+                <!--<div ng-message="required">商户联系电话不能为空</div>-->
+              <!--</div>-->
+            </md-input-container>
+          </form>
+        </div>
+
+        <md-button class="md-raised animated infinite" ng-disabled="!addMerchantForm.$valid" ng-click="submit()">提交</md-button>
+      </md-content>
+    </div>
+    <div layout="row" flex class="layout-row">
+      <div id="license-footer" style="align-self: flex-end;
+    padding: 16px 32px;
+    width: 100%;
+    text-align: left;
+    font-size: small;
+    border-top: 1px solid #ddd;">
+        Powered by PayMew ©2016.
+        Code licensed under the <a href="./license">MIT License</a>.
+      </div>
+    </div>
+  </md-content>
+</div>
